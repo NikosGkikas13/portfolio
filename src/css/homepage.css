@@ -1,0 +1,16 @@
+#homepage {
+  padding-top: 180px;
+  background-image: url("../images/astronaut.png");
+  background-position: center 350px;
+  background-repeat: no-repeat;
+  height: 800px;
+  color: #fff;
+}
+.homepage-title {
+  text-align: center;
+  font-size: 5em;
+}
+.homepage-subtitle {
+  text-align: center;
+  font-size: 3em;
+}

@@ -1,0 +1,44 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 1800px;
+}
+.navLink {
+  margin: 15px;
+  font-size: 1.4em;
+}
+.navLink {
+  position: relative;
+  display: inline-block;
+  font-size: 2em;
+  font-weight: 800;
+  color: royalblue;
+  overflow: hidden;
+}
+.navLink {
+  /* Same as before */
+  background: linear-gradient(
+    to right,
+    red,
+    rgb(252, 248, 5) 50%,
+    rgba(0, 255, 209, 1) 50%
+  );
+}
+
+.navLink {
+  /* Same as before */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+}
+.navLink {
+  /* Same as before */
+  transition: background-position 275ms ease;
+}
+.navLink:hover {
+  background-position: 0 100%;
+}
