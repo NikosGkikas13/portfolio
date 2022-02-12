@@ -1,0 +1,34 @@
+.rocket {
+  position: fixed;
+}
+.bounce {
+  animation: bounce 2s infinite ease-in-out;
+}
+@keyframes bounce {
+  0%,
+  5%,
+  95%,
+  100% {
+    top: 75%;
+    transform: translate(0, 0);
+  }
+  45%,
+  55% {
+    top: 78%;
+    transform: translate(-3%, 0);
+  }
+}
+.rotate {
+  animation: rotate 2s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+}
+@keyframes rotate {
+  0% {
+    top: 75%;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 75%;
+    transform: rotate(180deg);
+  }
+}

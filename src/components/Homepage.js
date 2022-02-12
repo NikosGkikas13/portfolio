@@ -1,24 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../css/homepage.css";
-import rocket from "../images/rocket.png";
+import Rocket from "./Rocket";
 
-const Homepage = () => {
-  const [x, setX] = useState();
-  const [y, setY] = useState();
-  const getMouseCoordinates = (e) => {
-    setX(e.pageX);
-    setY(e.pageY);
-    console.log(`x:${x} + y:${y}`);
-  };
-  const rocketStyle = {
-    position: "relative",
-    right: "0px",
-  };
+const Homepage = (props) => {
+  const homepageRef = useRef();
+  const { moveRocket, setmove, stateManagement } = props;
+
+  useEffect(() => {
+    stateManagement(homepageRef, 0);
+  }, []);
   return (
-    <section id="homepage" onMouseMove={getMouseCoordinates}>
+    <section ref={homepageRef} id="homepage">
       <h1 className="homepage-title">Nikos Gkikas</h1>
       <h2 className="homepage-subtitle">Front End Web Developer</h2>
-      <img src={rocket} style={rocketStyle} alt="" />
+      <button onClick={() => setmove(!moveRocket)}>move</button>
+      <Rocket moveRocket={moveRocket} />
     </section>
   );
 };
