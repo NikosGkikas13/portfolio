@@ -1,0 +1,37 @@
+.solar-system {
+  margin-top: 150px;
+  background: url("../images/sun.png") no-repeat center;
+  background-size: 500px;
+  margin-bottom: 100px;
+}
+.lang-icon {
+  width: 140px;
+  position: relative;
+}
+.lang-icons-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: 0 auto;
+}
+.lang-icons-container div {
+  margin: 100px 120px 140px 100px;
+}
+.lang-icons-container ul {
+  position: absolute;
+}
+.lang-icons-container ul li {
+  color: rgba(0, 255, 209, 1);
+}
+.skills-list {
+  list-style-type: none;
+}
+.skills-list li {
+  display: flex;
+  align-items: center;
+}
+.asteroid {
+  width: 40px;
+}

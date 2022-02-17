@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import "../css/about.css";
+import { data } from "../data";
+import about_me_photo from "../images/about-me-photo.png";
+
 const About = (props) => {
   const { stateManagement } = props;
   const aboutRef = useRef();
@@ -8,7 +11,27 @@ const About = (props) => {
   }, []);
   return (
     <section ref={aboutRef} id="about">
-      About
+      <div className="intro">
+        <img className="self-photo" src={about_me_photo} alt="" />
+        <div className="about-text-container">
+          <h1 className="about-title lightblue">{data.about.title}</h1>
+          <p className="about-paragraph lightblue">
+            I have a Bachelor degree in Computer Engineering since 2019 and have
+            been working as a front end web developer ever since.
+          </p>
+          <p className="about-paragraph lightblue">
+            I find beauty in writting clean,thorough and well-structrured code
+            for websites.
+          </p>
+          <p className="about-paragraph lightblue">
+            My mindset is that everyday is a chance to get better and
+            improve/expand my skills.
+          </p>
+          <p className="about-paragraph lightblue">
+            Firm believer that <u>practice makes perfect</u>.
+          </p>
+        </div>
+      </div>
     </section>
   );
 };

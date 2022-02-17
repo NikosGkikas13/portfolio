@@ -10,6 +10,7 @@ import Work from "./components/Work";
 import Contact from "./components/Contact";
 import { useDispatch, useSelector } from "react-redux";
 import { linkActions } from "./redux/refSlice";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
   const [moveRocket, setMoveRocket] = useState(false);
   const dispatch = useDispatch();
@@ -23,9 +24,8 @@ function App() {
   console.log(linkState);
   return (
     <div className="App">
-      <div className="container">
-        <Navbar />
-        {/* <Rocket rotate={rotate} rocketRef={rocketRef} /> */}
+      <div className="container" onScroll={() => console.log("hi")}>
+        <Navbar moveRocket={moveRocket} setmove={setMoveRocket} />
         <Homepage
           moveRocket={moveRocket}
           setmove={setMoveRocket}

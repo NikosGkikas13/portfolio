@@ -19,7 +19,7 @@
   }
 }
 .rotate {
-  animation: rotate 2s ease-in-out;
+  animation: rotate 3s ease-in-out;
   -webkit-animation-fill-mode: forwards;
 }
 @keyframes rotate {
@@ -27,8 +27,33 @@
     top: 75%;
     transform: rotate(0deg);
   }
-  100% {
+
+  20% {
     top: 75%;
     transform: rotate(180deg);
   }
+  40% {
+    top: 75%;
+    transform: rotate(180deg);
+  }
+  60% {
+    top: 75%;
+    transform: rotate(180deg);
+  }
+  100% {
+    top: 75%;
+    transform: rotate(360deg);
+  }
+}
+.text-bubble {
+  width: 100px;
+  margin-left: 30px;
+  margin-top: -70px;
+}
+.rocket-text {
+  margin-top: -55px;
+  margin-left: 29px;
+  color: #000;
+  width: 100px;
+  text-align: center;
 }

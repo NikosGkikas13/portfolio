@@ -6,6 +6,7 @@ const linkSlice = createSlice({
     value: {
       ref: [],
       id: [],
+      moveRocket: true,
     },
   },
   reducers: {
@@ -14,6 +15,9 @@ const linkSlice = createSlice({
     },
     addId: (state, action) => {
       state.value.id = [...state.value.id, action.payload];
+    },
+    setMoveRocket: (state, action) => {
+      state.value.moveRocket = action.payload;
     },
   },
 });

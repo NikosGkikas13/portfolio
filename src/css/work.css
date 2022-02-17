@@ -1,0 +1,33 @@
+#work h1 {
+  text-align: center;
+  color: rgba(0, 255, 209, 1);
+  font-size: 3em;
+  margin-bottom: 50px;
+}
+.project {
+  width: 300px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.project:hover {
+  cursor: pointer;
+}
+.project img {
+  width: inherit;
+}
+.freelance-projects {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stacks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  color: rgb(190, 14, 14);
+  font-weight: 900;
+}
