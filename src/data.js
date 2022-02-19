@@ -17,7 +17,7 @@ export const data = {
     paragraph:
       "I have a Bachelor degree in Computer Engineering." +
       `\n` +
-      "I find beauty in writting clean,thorough and well-structrured code for websites. My goal is to get better with each day.",
+      "I find beauty in writting clean,responsive,thorough and well-structrured code for websites. My goal is to get better with each day.",
   },
   work: {
     freelance: [
