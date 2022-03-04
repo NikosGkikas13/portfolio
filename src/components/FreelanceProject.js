@@ -9,9 +9,11 @@ const FreelanceProject = (props) => {
     backgroundImage: `url(${img})`,
   });
   const projectClassList = `project-container ${
-    direction ? "flex-reverse" : ""
+    direction % 2 != 0 ? "flex-reverse" : ""
   }`;
-  const projectTextClassList = `project-text ${direction ? "reverse" : ""}`;
+  const projectTextClassList = `project-text ${
+    direction % 2 != 0 ? "reverse" : ""
+  }`;
   return (
     <div className={projectClassList}>
       <div

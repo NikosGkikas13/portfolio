@@ -20,15 +20,20 @@ const About = (props) => {
             been working as a front end web developer ever since.
           </p>
           <p className="about-paragraph lightblue">
-            I find beauty in writting clean,thorough and well-structrured code
-            for websites.
+            I find beauty in writting clean,responsive,thorough and
+            well-structrured code for websites.
           </p>
           <p className="about-paragraph lightblue">
             My mindset is that everyday is a chance to get better and
             improve/expand my skills.
           </p>
           <p className="about-paragraph lightblue">
-            Firm believer that <u>practice makes perfect</u>.
+            Firm believer that practice makes perfect.
+          </p>
+          <p className="about-paragraph lightblue">
+            <a href="" download>
+              Download my CV here
+            </a>
           </p>
         </div>
       </div>

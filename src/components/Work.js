@@ -15,7 +15,7 @@ const Work = (props) => {
       <div className="freelance-work">
         <h1>Freelance Work</h1>
         <div className="freelance-projects">
-          {data.work.freelance.map((item) => {
+          {data.work.freelance.map((item, index) => {
             return (
               <FreelanceProject
                 title={item.title}
@@ -24,7 +24,7 @@ const Work = (props) => {
                 stacks={item.stacks}
                 intro={item.intro}
                 contains={item.contains}
-                direction={item.flex_directon}
+                direction={index}
               />
             );
           })}

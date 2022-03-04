@@ -7,6 +7,7 @@ const linkSlice = createSlice({
       ref: [],
       id: [],
       moveRocket: true,
+      text: "Welcome to my page",
     },
   },
   reducers: {
@@ -18,6 +19,9 @@ const linkSlice = createSlice({
     },
     setMoveRocket: (state, action) => {
       state.value.moveRocket = action.payload;
+    },
+    setRocketText: (state, action) => {
+      state.value.text = action.payload;
     },
   },
 });

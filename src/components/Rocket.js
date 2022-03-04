@@ -2,11 +2,11 @@ import React from "react";
 import rocket from "../images/rocket.png";
 import text_bubble from "../images/text-bubble-removebg-preview.png";
 import "../css/rocket.css";
+
 import { useSelector } from "react-redux";
 const Rocket = (props) => {
-  const { rocketText } = props;
   const moveRocket = useSelector((state) => state.link.value.moveRocket);
-
+  const rocketText = useSelector((state) => state.link.value.text);
   return (
     <>
       <img

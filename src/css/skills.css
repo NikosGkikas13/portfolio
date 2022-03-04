@@ -1,32 +1,19 @@
-.solar-system {
-  margin-top: 150px;
-  background: url("../images/sun.png") no-repeat center;
-  background-size: 500px;
-  margin-bottom: 100px;
-}
 .lang-icon {
-  width: 140px;
+  width: 100px;
   position: relative;
 }
 .lang-icons-container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  width: 1400px;
-  margin: 0 auto;
 }
-.lang-icons-container div {
-  margin: 100px 120px 140px 100px;
-}
-.lang-icons-container ul {
-  position: absolute;
-}
+
 .lang-icons-container ul li {
   color: rgba(0, 255, 209, 1);
 }
 .skills-list {
   list-style-type: none;
+  padding: 0;
 }
 .skills-list li {
   display: flex;
@@ -34,4 +21,16 @@
 }
 .asteroid {
   width: 40px;
+}
+#skills,
+#about,
+#work,
+#contact {
+  z-index: 2;
+}
+.lang-div {
+  padding: 80px;
+}
+.lang-div > img {
+  width: 128px;
 }

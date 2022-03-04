@@ -5,7 +5,7 @@ import Rocket from "./Rocket";
 const Homepage = (props) => {
   const homepageRef = useRef();
   const { moveRocket, setmove, stateManagement } = props;
-  const [rocketText, setRocketText] = useState("Welcome to my page");
+
   const rocketRotate = () => {
     setTimeout(() => {
       setmove(!moveRocket);
@@ -19,7 +19,7 @@ const Homepage = (props) => {
     <section ref={homepageRef} id="homepage">
       <h1 className="homepage-title lightblue">Nikos Gkikas</h1>
       <h2 className="homepage-subtitle lightblue">Front End Web Developer</h2>
-      <Rocket moveRocket={moveRocket} rocketText={rocketText} />
+      <Rocket moveRocket={moveRocket} />
     </section>
   );
 };

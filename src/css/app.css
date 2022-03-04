@@ -1,11 +1,27 @@
 * {
   margin: 0;
 }
+@font-face {
+  font-family: "Fredoka";
+  src: local("Fredoka"),
+    url(./../fonts/Fredoka-VariableFont_wdth.ttf) format("truetype");
+}
 
+* {
+  font-family: Fredoka;
+}
+a {
+  color: rgb(255, 0, 0);
+}
+#video {
+  position: fixed;
+  z-index: -1;
+  max-width: 1800px;
+}
 .container {
   max-width: 1800px;
   margin: 0 auto;
-  background: url("../images/space_bg.jpg");
+  background: transparent;
 }
 .pointer {
   cursor: pointer;

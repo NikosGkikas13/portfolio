@@ -6,24 +6,26 @@ const CompanyProject = (props) => {
     backgroundImage: `url(${img})`,
   });
   const [hover, setHover] = useState(false);
+  const handleHover = (ishover, img) => {
+    setHover(ishover);
+    // setBackgroundImg(img);
+  };
   return (
     <div
       className="company-project"
       style={backgroundImg}
-      onClick={() => window.open(url, "blank")}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      // onMouseEnter={() => handleHover(true)}
+      // onMouseLeave={() => handleHover(false)}
     >
-      {hover && (
-        <div className="company-project-text">
-          <h3>{title}</h3>
-          <div>
-            {stacks.map((stack) => {
-              return <span className="stack">{stack}</span>;
-            })}
-          </div>
+      <div className="company-project-text">
+        <h3>{title}</h3>
+        <div>
+          {stacks.map((stack) => {
+            return <span className="stack">{stack}</span>;
+          })}
         </div>
-      )}
+        <button onClick={() => window.open(url, "blank")}>Visit Website</button>
+      </div>
     </div>
   );
 };
