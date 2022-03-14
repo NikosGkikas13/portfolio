@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../css/footer.css";
 import { data } from "../data";
 import logo from "../images/logo_text.png";
-const Footer = () => {
+const Footer = (props) => {
   const [socialHover, setSocialHover] = useState(false);
   //Social Media Component
   const SocialMediaIicon = (props) => {
@@ -21,7 +21,7 @@ const Footer = () => {
   };
   //Social Media Component
   return (
-    <footer>
+    <footer onClick={props.closeMobileMenu}>
       <img src={logo} alt="" />
       <div className="footer-text-container">
         <p>

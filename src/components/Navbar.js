@@ -1,92 +1,88 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { data } from "../data";
 import logo from "../images/logo_text.png";
+import { memo } from "react";
 import "../css/nav.css";
 import { createDispatchHook, useDispatch, useSelector } from "react-redux";
 import { linkActions } from "../redux/refSlice";
 import { NavLink } from "react-router-dom";
 import mobilemenu from "../images/mobilemenu.png";
-const Navbar = () => {
+const Navbar = (props) => {
   const linkState = useSelector((state) => state.link.value);
   const moveRocket = useSelector((state) => state.link.value.moveRocket);
+  const mc = useSelector((state) => state.link.value.menuClass);
   const dispatch = useDispatch();
-  const [currentIndex, setCurrentIndex] = useState(0);
-
+  const currentIndex = useRef(0);
+  const positionREF = useRef();
   const [scrollPosition, setScrollPosition] = useState(0);
-  const handleScrollWhell = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-    console.log(position);
-    //Scroll animation functionality
-    if (position > 0 && position < 700) {
-      setCurrentIndex(0.5);
-    } else if (position > 980 && position < 1300) {
-      setCurrentIndex(1.5);
-    } else if (position > 1300 && position < 2300) {
-      setCurrentIndex(2.5);
-    } else if (position > 2300 && position < 4900) {
-      setCurrentIndex(3.5);
-    }
-    //Scroll animation functionality
+  // const indexFocusRef = useRef(0);
 
-    //Rocket message
-    if (position > 500 && position <= 1200) {
-      dispatch(linkActions.setRocketText("A little about me"));
-    } else if (position > 1200 && position <= 2400) {
-      dispatch(linkActions.setRocketText("Languages I speak"));
-    } else if (position > 2400 && position <= 4800) {
-      dispatch(linkActions.setRocketText("Hover over projects"));
-    } else if (position > 4800) {
-      dispatch(linkActions.setRocketText("Send me a message"));
-    } else {
-      dispatch(linkActions.setRocketText("Welcome to my page"));
+  const handleScrollWhell = () => {
+    positionREF.current = window.pageYOffset;
+
+    //Scroll animation functionalit
+    if (positionREF.current > 0 && positionREF.current < 700) {
+      currentIndex.current = 0.5;
+    } else if (positionREF.current > 780 && positionREF.current < 1300) {
+    } else if (positionREF.current > 1300 && positionREF.current < 2300) {
+      currentIndex.current = 2.5;
+    } else if (positionREF.current > 2300 && positionREF.current < 4900) {
+      currentIndex.current = 3.5;
+    } else if (positionREF.current > 4900) {
     }
+
+    //Scroll animation functionality
   };
-  //Rocket message
+
   useEffect(() => {
     window.addEventListener("scroll", handleScrollWhell);
   }, []);
 
-  const navlinkHover = {
-    backgroundPosition: `0 100%`,
-  };
-
   const [linkHover, setLinkHover] = useState(false);
-  const links = [`navLink pointer gradient ${navlinkHover}`];
+  const links = [`navLink pointer gradient `];
+  props.ismobile && dispatch(linkActions.setMoveRocket(false));
 
   const handleScroll = (index) => {
-    console.log("Start: current index: " + currentIndex + " index: " + index);
-    if (currentIndex < index) {
+    console.log(
+      "Start: current index: " + currentIndex.current + " index: " + index
+    );
+    if (currentIndex.current < index) {
       setTimeout(() => {
         dispatch(linkActions.setMoveRocket(false));
-      }, 500);
+      }, props.ismobile == false && 500);
       setTimeout(() => {
         linkState.ref[index].current.scrollIntoView({
           block: "start",
           behavior: "smooth",
         });
-      }, 1500);
+      }, props.ismobile == false && 1500); // on mobile disable timer
       setTimeout(() => {
-        dispatch(linkActions.setMoveRocket(true));
+        props.ismobile == false && dispatch(linkActions.setMoveRocket(true));
         console.log(moveRocket);
       }, 3500);
-      setCurrentIndex(index);
+      currentIndex.current = index;
     }
-    if (currentIndex > index) {
+    if (currentIndex.current > index) {
       setTimeout(() => {
         linkState.ref[index].current.scrollIntoView({
           block: "start",
           behavior: "smooth",
         });
       }, 0);
-      setCurrentIndex(index);
+      currentIndex.current = index;
     }
-    console.log("End: current index: " + currentIndex + " index: " + index);
+    console.log(
+      "End: current index: " + currentIndex.current + " index: " + index
+    );
   };
+
+  //Render Desktop or Mobile Menu based on window width
+
+  //Render Desktop or Mobile Menu based on window width
   //Desktop menu
-  const DesktopMenu = () => {
+  const DesktopMenu = (props) => {
     return (
-      <nav>
+      <>
         <img
           className="pointer"
           src={logo}
@@ -101,6 +97,7 @@ const Navbar = () => {
         <div className="navLinkContainer">
           {data.nav.map((item, index) => {
             let filteredID = linkState.id.filter((id) => id === index);
+
             return (
               <span
                 className={links}
@@ -113,20 +110,37 @@ const Navbar = () => {
             );
           })}
         </div>
-      </nav>
+      </>
     );
   };
   //Desktop menu
-  const [showMenu, setShowMenu] = useState(false);
-  const [left, setLeft] = useState({ left: "-250px" });
-  useEffect(() => {
-    setLeft(showMenu ? { left: "0px" } : { left: "-250px" });
-  }, [showMenu]);
-  console.log(showMenu);
+
   //Mobile menu
   const MobileMenu = () => {
+    const submenuClass = useSelector((state) => state.link.value.submenuClass);
+    const isShown = useRef();
+    const handleSubMenu = () => {
+      dispatch(linkActions.setMenuClass());
+      dispatch(
+        linkActions.setsubmenuClass(
+          `submenu ${mc ? "submenu-hide" : "submenu-show"}`
+        )
+      );
+    };
+
     return (
-      <nav className="mobile-nav" style={left}>
+      <div className="mobile-menu">
+        <img src={mobilemenu} alt="" onClick={handleSubMenu} />
+        <Submenu isshown={isShown.current} submenuClass={submenuClass} />
+      </div>
+    );
+  };
+  //Mobile menu
+  //Mobile Sub menu
+
+  const Submenu = React.memo((props) => {
+    return (
+      <div className={props.submenuClass}>
         <img
           className="pointer"
           src={logo}
@@ -142,46 +156,21 @@ const Navbar = () => {
           {data.nav.map((item, index) => {
             let filteredID = linkState.id.filter((id) => id === index);
             return (
-              <span
-                className={links}
-                onClick={() => handleScroll(filteredID)}
-                onMouseEnter={() => setLinkHover(true)}
-                onMouseLeave={() => setLinkHover(false)}
-              >
+              <span className={links} onClick={() => handleScroll(filteredID)}>
                 {item}
               </span>
             );
           })}
         </div>
-      </nav>
+      </div>
     );
-  };
-  //Mobile menu
-
+  });
+  //Mobile Sub menu
   // Resize Functionality for Desktop or Mobile menu
-  const [isMobileMenu, setisMobileMenu] = useState(false);
-  const checkWindowWidth = () => {
-    if (window.innerWidth <= 768) {
-      setisMobileMenu(true);
-    } else if (window.innerWidth > 768) {
-      setisMobileMenu(false);
-    }
-  };
-  useEffect(() => {
-    checkWindowWidth();
-    window.addEventListener("resize", () => {
-      checkWindowWidth();
-      console.log(isMobileMenu);
-    });
-  }, [isMobileMenu]);
-  // Resize Functionality for Desktop or Mobile menu
-  return isMobileMenu ? (
+  return (
     <>
-      <img src={mobilemenu} alt="" onClick={() => setShowMenu(!showMenu)} />
-      <MobileMenu />
+      <nav>{props.ismobile ? <MobileMenu /> : <DesktopMenu />}</nav>
     </>
-  ) : (
-    <DesktopMenu />
   );
 };
 

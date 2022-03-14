@@ -29,8 +29,46 @@
   z-index: 2;
 }
 .lang-div {
-  padding: 80px;
+  padding: 70px;
 }
 .lang-div > img {
   width: 128px;
+}
+@media screen and (max-width: 1240px) {
+  .lang-div > img {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  /* .lang-div {
+    padding: 10px 60px 0px 60px;
+  } */
+}
+@media screen and (max-width: 768px) {
+  .lang-div {
+    padding: 60px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .asteroid {
+    width: 20px;
+  }
+  .skills-list p {
+    font-size: 0.8em;
+  }
+  .lang-div {
+    padding: 10px 30px 0px 30px;
+    flex: 0 0 29%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .lang-div > img {
+    width: 50px;
+  }
+  .asteroid {
+    width: 15px;
+  }
+  .skills-list p {
+    font-size: 0.6em;
+  }
 }

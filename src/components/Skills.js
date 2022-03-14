@@ -3,13 +3,13 @@ import "../css/skills.css";
 import SkillList from "./SkillList";
 import { data } from "../data";
 const Skills = (props) => {
-  const { stateManagement } = props;
+  const { stateManagement, closeMobileMenu } = props;
   const skillsRef = useRef();
   useEffect(() => {
     stateManagement(skillsRef, 2);
   }, []);
   return (
-    <section ref={skillsRef} id="skills">
+    <section ref={skillsRef} id="skills" onClick={closeMobileMenu}>
       <div className="lang-icons-container">
         {data.skills.map((item) => {
           return (

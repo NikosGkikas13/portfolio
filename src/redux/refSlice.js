@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useRef } from "react";
 
 const linkSlice = createSlice({
   name: "link",
@@ -8,6 +9,8 @@ const linkSlice = createSlice({
       id: [],
       moveRocket: true,
       text: "Welcome to my page",
+      menuClass: false,
+      submenuClass: "submenu",
     },
   },
   reducers: {
@@ -22,6 +25,15 @@ const linkSlice = createSlice({
     },
     setRocketText: (state, action) => {
       state.value.text = action.payload;
+    },
+    setMenuClass: (state) => {
+      state.value.menuClass = !state.value.menuClass;
+    },
+    setsubmenuClass: (state, action) => {
+      state.value.submenuClass = action.payload;
+    },
+    mobileMenuFalse: (state) => {
+      state.value.menuClass = false;
     },
   },
 });

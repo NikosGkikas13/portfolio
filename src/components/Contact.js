@@ -4,7 +4,7 @@ import { data } from "../data";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 const Contact = (props) => {
   const contactRef = useRef();
-  const { stateManagement } = props;
+  const { stateManagement, closeMobileMenu } = props;
   useEffect(() => {
     stateManagement(contactRef, 4);
   }, []);
@@ -24,7 +24,7 @@ const Contact = (props) => {
   };
   return (
     <>
-      <section ref={contactRef} id="contact">
+      <section ref={contactRef} id="contact" onClick={closeMobileMenu}>
         <h1>Get in touch</h1>
         <p>Feel free to contact me about anything</p>
         <Router>

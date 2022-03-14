@@ -20,6 +20,33 @@ function App() {
   const dispatch = useDispatch();
   const linkState = useSelector((state) => state.link.value);
 
+  //Resize Functionality
+  const [isMobileMenu, setisMobileMenu] = useState(false);
+  const checkWindowWidth = () => {
+    if (window.innerWidth <= 768) {
+      setisMobileMenu(true);
+    } else if (window.innerWidth > 768) {
+      setisMobileMenu(false);
+    }
+  };
+  useEffect(() => {
+    checkWindowWidth();
+    window.addEventListener("resize", () => {
+      checkWindowWidth();
+    });
+  });
+  //Resize Functionality
+  const mc = useSelector((state) => state.link.value.menuClass);
+  const closeMobileMenu = () =>
+    setTimeout(() => {
+      dispatch(linkActions.mobileMenuFalse());
+      mc &&
+        dispatch(
+          linkActions.setsubmenuClass(
+            `submenu ${mc ? "submenu-hide" : "submenu-show"}`
+          )
+        );
+    }, 100);
   const stateManagement = (value, id) => {
     dispatch(linkActions.addRef(value));
     dispatch(linkActions.addId(id));
@@ -43,17 +70,35 @@ function App() {
             <source src={spaceVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <Navbar moveRocket={moveRocket} setmove={setMoveRocket} />
+          <Navbar
+            moveRocket={moveRocket}
+            setmove={setMoveRocket}
+            ismobile={isMobileMenu}
+          />
           <Homepage
             moveRocket={moveRocket}
             setmove={setMoveRocket}
             stateManagement={stateManagement}
+            ismobile={isMobileMenu}
+            closeMobileMenu={closeMobileMenu}
           />
-          <About stateManagement={stateManagement} />
-          <Skills stateManagement={stateManagement} />
-          <Work stateManagement={stateManagement} />
-          <Contact stateManagement={stateManagement} />
-          <Footer />
+          <About
+            stateManagement={stateManagement}
+            closeMobileMenu={closeMobileMenu}
+          />
+          <Skills
+            stateManagement={stateManagement}
+            closeMobileMenu={closeMobileMenu}
+          />
+          <Work
+            stateManagement={stateManagement}
+            closeMobileMenu={closeMobileMenu}
+          />
+          <Contact
+            stateManagement={stateManagement}
+            closeMobileMenu={closeMobileMenu}
+          />
+          <Footer closeMobileMenu={closeMobileMenu} />
         </div>
       )}
     </div>

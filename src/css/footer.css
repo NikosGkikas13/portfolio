@@ -36,3 +36,26 @@ hr {
   background-color: #00c6a2;
   border: none;
 }
+@media screen and (max-width: 1240px) {
+  .footer-text-container {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  footer {
+    padding-top: 60px;
+  }
+  .footer-text-container {
+    width: 80%;
+  }
+  .footer-text-container,
+  .footer-text-container p,
+  .info-container {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer-text-container {
+    width: 90%;
+  }
+}

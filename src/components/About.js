@@ -4,13 +4,13 @@ import { data } from "../data";
 import about_me_photo from "../images/about-me-photo.png";
 
 const About = (props) => {
-  const { stateManagement } = props;
+  const { stateManagement, closeMobileMenu } = props;
   const aboutRef = useRef();
   useEffect(() => {
     stateManagement(aboutRef, 1);
   }, []);
   return (
-    <section ref={aboutRef} id="about">
+    <section ref={aboutRef} id="about" onClick={closeMobileMenu}>
       <div className="intro">
         <img className="self-photo" src={about_me_photo} alt="" />
         <div className="about-text-container">

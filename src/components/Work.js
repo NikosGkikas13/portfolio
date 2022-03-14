@@ -4,14 +4,14 @@ import { data } from "../data";
 import CompanyProject from "./CompanyProject";
 import FreelanceProject from "./FreelanceProject";
 const Work = (props) => {
-  const { stateManagement } = props;
+  const { stateManagement, closeMobileMenu } = props;
   const workRef = useRef();
   useEffect(() => {
     stateManagement(workRef, 3);
   }, []);
-  console.log(data.work.freelance[0]);
+
   return (
-    <section ref={workRef} id="work">
+    <section ref={workRef} id="work" onClick={closeMobileMenu}>
       <div className="freelance-work">
         <h1>Freelance Work</h1>
         <div className="freelance-projects">
