@@ -51,7 +51,7 @@ function App() {
     dispatch(linkActions.addRef(value));
     dispatch(linkActions.addId(id));
   };
-  const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const [inputValue, setInputValue] = useState(0);
   setTimeout(() => {
     setShowIntro(false);
@@ -59,6 +59,10 @@ function App() {
 
   return (
     <div className="App">
+      <video loop autoPlay muted id="video">
+        <source src={spaceVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       {showIntro ? (
         <div className="intro-container">
           <img className="intro-gif" src={intro} alt="" />
@@ -66,10 +70,6 @@ function App() {
         </div>
       ) : (
         <div className="container" onScroll={() => console.log("hi")}>
-          <video loop autoPlay muted id="video">
-            <source src={spaceVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
           <Navbar
             moveRocket={moveRocket}
             setmove={setMoveRocket}

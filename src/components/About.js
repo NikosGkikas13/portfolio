@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "../css/about.css";
 import { data } from "../data";
 import about_me_photo from "../images/about-me-photo.png";
+import CV from "../cv.pdf";
 
 const About = (props) => {
   const { stateManagement, closeMobileMenu } = props;
@@ -31,7 +32,7 @@ const About = (props) => {
             Firm believer that practice makes perfect.
           </p>
           <p className="about-paragraph lightblue">
-            <a href="" download>
+            <a href={CV} download>
               Download my CV here
             </a>
           </p>

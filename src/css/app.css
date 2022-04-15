@@ -10,6 +10,10 @@
 * {
   font-family: Fredoka;
 }
+.App {
+  max-width: 1800px;
+  margin: 0 auto;
+}
 a {
   color: rgb(255, 0, 0);
 }
@@ -34,6 +38,7 @@ a {
   height: 100%;
   background: black;
   width: 100%;
+  max-width: 1800px;
 }
 .intro-gif {
   position: absolute;
@@ -62,7 +67,7 @@ a {
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="range"] {
     overflow: hidden;
-    width: 500px;
+    width: 40%;
     -webkit-appearance: none;
     background-color: #ffffff;
     border-radius: 20px;
@@ -95,4 +100,10 @@ input[type="range"]::-ms-fill-lower {
 }
 input[type="range"]::-ms-fill-upper {
   background-color: #9a905d;
+}
+
+@media only screen and (max-width: 500px) {
+  .intro-gif {
+    width: 300px;
+  }
 }
