@@ -13,7 +13,7 @@ import { linkActions } from "./redux/refSlice";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import intro from "./images/intro.gif";
 import InputSlide from "./components/InputSlide";
-import spaceVideo from "./images/space_video.mp4";
+import spaceVideo from "./images/space_video2.mp4";
 import Footer from "./components/Footer";
 function App() {
   const [moveRocket, setMoveRocket] = useState(false);
@@ -51,7 +51,7 @@ function App() {
     dispatch(linkActions.addRef(value));
     dispatch(linkActions.addId(id));
   };
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
   const [inputValue, setInputValue] = useState(0);
   setTimeout(() => {
     setShowIntro(false);
@@ -59,7 +59,7 @@ function App() {
 
   return (
     <div className="App">
-      <video loop autoPlay muted id="video">
+      <video loop autoPlay muted playsInline id="video">
         <source src={spaceVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

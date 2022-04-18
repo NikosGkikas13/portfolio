@@ -35,7 +35,7 @@ export const data = {
     title:
       "I’m Nikos Gkikas, a front-end web developer based in Athens, Greece.",
     paragraph:
-      "I have a Bachelor degree in Computer Engineering." +
+      "I have a Bachelor degree in Informatics Engineering." +
       `\n` +
       "I find beauty in writting clean,thorough and well-structrured code for websites. My goal is to get better with each day.",
   },
